@@ -3,8 +3,8 @@ package edu.bsu.cs222.finalProject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DeliveryInfo
-{
+public class DeliveryInfo {
+
      private final String streetAddressLine1;
      private final String zipCode;
      private final String state;

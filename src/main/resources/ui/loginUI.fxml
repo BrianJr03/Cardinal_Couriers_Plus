@@ -17,6 +17,7 @@
                <Font name="Century Schoolbook Italic" size="18.0" />
             </font>
          </Label>
+         <Button layoutX="14.0" layoutY="580.0" mnemonicParsing="false" onAction="#goBackToWelcome" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Back" />
       </Pane>
    </VBox>
    <Pane layoutX="270.0" layoutY="-2.0" prefHeight="556.0" prefWidth="456.0" styleClass="parent" stylesheets="@../stylesheets/loginUI_stylesheet.css">

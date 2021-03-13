@@ -9,10 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
 import java.util.Objects;
-
 import static edu.bsu.cs222.finalProject.DeliveryMap.*;
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
 
@@ -82,4 +80,7 @@ public class DeliveryUIController {
             launchMainUI();
         }
     }
+
+    public void byPass() throws IOException
+    { launchMainUI(); }
 }

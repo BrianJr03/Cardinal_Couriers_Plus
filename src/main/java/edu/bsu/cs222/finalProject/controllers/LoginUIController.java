@@ -48,6 +48,11 @@ public class LoginUIController {
             rootPane.getChildren().setAll(pane);
     }
 
+    @FXML //has duplicate in signup
+    private void goBackToWelcome() throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/ui/welcomeUI.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
     public void showUnMaskedPassword() {
         if (checkBox.isSelected()) {
             passwordVisibility.setImage(isVisible_PNG);

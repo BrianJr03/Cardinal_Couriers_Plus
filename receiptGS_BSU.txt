@@ -1,11 +1,10 @@
-Receipt for order 2538N
+Receipt for order 1675N
 ---------------------------------------
-Chicken Noodle Soup | 3.59 | QTY:5
-Frozen Burgers | 4.79 | QTY:4
-Burrito | 0.99 | QTY:3
+Bread | 0.99 | QTY:5
+Premium Salsa | 5.19 | QTY:5
 
-Total: $40.08
-Date purchased: 2020-12-10
+Total: $30.9
+Date purchased: 2021-03-12
 ---------------------------------------------
 
 Thanks for shopping with us!

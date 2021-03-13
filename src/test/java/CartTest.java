@@ -72,5 +72,4 @@ public class CartTest {
         cart.remove(itemToCart);
         Assertions.assertFalse(cart.getItems().contains(itemToCart));
     }
-
 }

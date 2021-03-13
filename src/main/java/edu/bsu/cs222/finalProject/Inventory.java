@@ -23,8 +23,7 @@ public class Inventory {
         switch ( storeName ) {
             default -> path = "src/main/resources/storeItems/Walmart_Items.json";
             case "Kroger" -> path = "src/main/resources/storeItems/Kroger_Items.json";
-            case "ALDI" -> path = "src/main/resources/storeItems/ALDI_Items.json";
-        }
+            case "ALDI" -> path = "src/main/resources/storeItems/ALDI_Items.json"; }
         FileReader reader = new FileReader(path);
         return JsonParser.parseReader( reader ).getAsJsonArray();
     }
@@ -33,8 +32,8 @@ public class Inventory {
         JsonArray inventoryAsJsonArray = getInventory(storeName);
         ArrayList<Item> itemsList = new ArrayList<>();
         for (JsonElement item : inventoryAsJsonArray) {
-            itemsList.add(new Item(item.getAsJsonObject().get("name").toString().replace("\"", ""), item.getAsJsonObject().get("price").getAsDouble()));
-        }
+            itemsList.add(new Item(item.getAsJsonObject().get("name").toString().replace("\"", ""),
+                    item.getAsJsonObject().get("price").getAsDouble())); }
         return itemsList;
     }
 }

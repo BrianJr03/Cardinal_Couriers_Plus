@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" styleClass="parent" stylesheets="@../stylesheets/loginUI_stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.finalProject.controllers.WelcomeController">
+    <VBox alignment="CENTER" prefHeight="619.0" prefWidth="726.0" styleClass="sidebar" stylesheets="@../stylesheets/loginUI_stylesheet.css">
+        <Pane prefHeight="615.0" prefWidth="725.0">
+            <Button layoutX="443.0" layoutY="268.0" mnemonicParsing="false" onAction="#loadLogin" prefHeight="25.0" prefWidth="64.0" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Login" />
+            <Button layoutX="256.0" layoutY="268.0" mnemonicParsing="false" onAction="#loadSignUp" prefHeight="27.0" prefWidth="148.0" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Create New Account" />
+            <Label layoutX="240.0" layoutY="168.0" prefHeight="53.0" prefWidth="381.0" text="Cardinal Couriers">
+                <font>
+                    <Font name="Fira Code Medium" size="36.0" />
+                </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="276.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../pngs/groceries200x200.png" />
+            </ImageView>
+        </Pane>
+    </VBox>
+    <ImageView id="test" fitHeight="50.0" fitWidth="50.0" layoutX="676.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="569.0">
+        <Image url="@../pngs/bsu.png" />
+    </ImageView>
+</AnchorPane>

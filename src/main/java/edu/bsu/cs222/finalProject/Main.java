@@ -8,18 +8,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Main extends Application implements EventHandler<ActionEvent> {
+
+    private final String icon
+            = String.valueOf(getClass().getResource("/pngs/groceries200x200.png" ));
 
     public static void main(String[] args)
     { launch( args ); }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource( "/ui/loginUI.fxml" ));
+        Parent root = FXMLLoader.load(getClass().getResource( "/ui/welcomeUI.fxml" ));
         primaryStage.setTitle( "Cardinal Couriers" );
+        primaryStage.getIcons().add( new Image( icon ));
         primaryStage.setScene(new Scene(root,725,615));
         primaryStage.setResizable( false );
         primaryStage.show();

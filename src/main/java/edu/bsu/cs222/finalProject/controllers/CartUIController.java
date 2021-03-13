@@ -61,9 +61,8 @@ public class CartUIController {
     }
 
     private void sendDataToOrderConfirm(OrderConfirmController orderConfirm) {
-        for (Item item : cart.getItems()) {
-            orderConfirm.cart.add(item);
-        }
+        for (Item item : cart.getItems())
+        { orderConfirm.cart.add(item); }
         orderConfirm.orderConfirmTable.setItems(cart.getItems());
         orderConfirm.costInDollars.setText(String.valueOf(orderConfirm.cart.getTotalCost()));
         orderConfirm.storeName.setText(storeName);

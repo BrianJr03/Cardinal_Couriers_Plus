@@ -54,9 +54,8 @@ public class PostPurchaseController {
     public void sendReceipt() throws MessagingException, IOException {
         if (emailCheckBox.isSelected())
         { sendReceiptAsEmail(SendReceipt.isValidEmail(emailAddress.getText()), cart );}
-        if(textCheckBox.isSelected()) {
-            sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(phoneNumber.getText()), cart, carrierComboBox.getValue());
-        }
+        if(textCheckBox.isSelected())
+        { sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(phoneNumber.getText()), cart, carrierComboBox.getValue()); }
         displayPromptFor3secs(receiptSent);
     }
 

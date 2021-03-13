@@ -26,6 +26,7 @@ dependencies {
 
     implementation 'com.google.maps:google-maps-services:0.15.0'
     implementation 'org.slf4j:slf4j-simple:1.7.25'
+    implementation 'mysql:mysql-connector-java:8.0.15'
 
     mainClassName = 'edu.bsu.cs222.finalProject.Main'
 }
