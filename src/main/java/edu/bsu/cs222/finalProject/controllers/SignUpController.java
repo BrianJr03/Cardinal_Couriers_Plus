@@ -22,7 +22,9 @@ import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
 public class SignUpController {
 
     @FXML
-    public Label pwFieldsMustMatch_Label;
+    private Label pwFieldsMustMatch_Label;
+    @FXML
+    private Label duplicateAcctExists_Label;
     @FXML
     private AnchorPane rootPane;
     @FXML
@@ -68,6 +70,7 @@ public class SignUpController {
         passwordVisibility_ImageView1.setImage( isNotVisible_PNG );
         passwordVisibility_ImageView2.setImage( isNotVisible_PNG );
         invalidUserInfo_Prompt.setVisible( false );
+        duplicateAcctExists_Label.setVisible( false );
     }
 
     @FXML //has duplicate in login
@@ -107,9 +110,11 @@ public class SignUpController {
         if ( isValidUserName( usernameInput.getText() ) && isValidPassword( usernameInput.getText() ,
                 passwordInput1.getText() ) && passwordInput1.getText().equals( passwordInput2.getText() ) ) {
             //Database integration
-            db.createUser( usernameInput.getText(), passwordInput1.getText() );
+            if ( !db.canCreateUser( usernameInput.getText(), passwordInput1.getText() ))
+            { displayPromptFor3secs( duplicateAcctExists_Label ); }
+            else { launchDeliveryUI(); }
             db.getConnection().close();
-            launchDeliveryUI(); }
+        }
         else { displayInvalidUserInfo_Prompt(); }
     }
 

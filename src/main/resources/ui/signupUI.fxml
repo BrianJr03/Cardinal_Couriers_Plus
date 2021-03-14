@@ -62,16 +62,20 @@
         <Label fx:id="notContainUserReq_Label" layoutX="178.0" layoutY="194.0" prefHeight="17.0" prefWidth="243.0" text="does not contain the username " textFill="#a3a3a3" />
         <Label fx:id="usernameReq_Label" layoutX="181.0" layoutY="159.0" text="minimum of 5 characters" textFill="#a3a3a3" />
         <Label fx:id="pwFieldsMustMatch_Label" layoutX="178.0" layoutY="211.0" prefHeight="17.0" prefWidth="218.0" text="both password fields must match" textFill="#a3a3a3" />
+      <Label fx:id="duplicateAcctExists_Label" layoutX="116.0" layoutY="474.0" text="Account with that username already exists." textFill="#da0909" />
     </Pane>
-    <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="430.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../pngs/insta.png" />
+    <ImageView id="test" fitHeight="50.0" fitWidth="50.0" layoutX="676.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="569.0">
+        <Image url="@../pngs/bsu.png" />
     </ImageView>
-    <Label layoutX="446.0" layoutY="531.0" prefHeight="38.0" prefWidth="130.0" text="\@BSUGrocery_Shop">
+    <Label layoutX="450.0" layoutY="575.0" prefHeight="38.0" prefWidth="120.0" text="\@BSUGrocery_Shop">
         <font>
-            <Font name="High Tower Text" size="13.0" />
+            <Font name="High Tower Text" size="12.0" />
         </font>
         <padding>
             <Insets left="5.0" top="20.0" />
         </padding>
     </Label>
+    <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="435.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../pngs/insta.png" />
+    </ImageView>
 </AnchorPane>

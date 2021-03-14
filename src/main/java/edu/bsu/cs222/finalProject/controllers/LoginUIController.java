@@ -1,5 +1,6 @@
 package edu.bsu.cs222.finalProject.controllers;
 
+import edu.bsu.cs222.finalProject.Database;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.SQLException;
 
 import static edu.bsu.cs222.finalProject.LoginLogic.isValidPassword;
 import static edu.bsu.cs222.finalProject.LoginLogic.isValidUserName;
@@ -34,6 +36,8 @@ public class LoginUIController {
     private TextField usernameInput;
 
     public Button forgotPasswordButton;
+
+    Database db = new Database();
 
     public void initialize()
     { passwordVisibility.setImage(isNotVisible_PNG); }
@@ -66,10 +70,13 @@ public class LoginUIController {
         java.awt.Desktop.getDesktop().browse(uri);
     }
 
-    public void verifyUserInfo() throws IOException {
-        if (isValidUserName(usernameInput.getText()) && isValidPassword(usernameInput.getText(), passwordInput.getText()))
+    public void verifyUserInfo() throws IOException, SQLException {
+        if ( isValidUserName(usernameInput.getText())
+                        && isValidPassword(usernameInput.getText(), passwordInput.getText())) {
+            if ( db.isValid_UserCredentials( usernameInput.getText(), passwordInput.getText() ))
              { launchDeliveryUI(); }
-        else { displayInvalidUserInfo_Prompt(); }
+            else { displayInvalidUserInfo_Prompt(); }
+        }
     }
 
     public void displayInvalidUserInfo_Prompt()

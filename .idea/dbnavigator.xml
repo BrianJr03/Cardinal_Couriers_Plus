@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -26,13 +26,14 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="95d9d373-6362-4376-b3da-30aa17517fd7">
-        <schema name="mydb" object-types="table, procedure, function, view" />
+        <schema name="mydb" object-types="view, table" />
+        <schema name="mysql" object-types="function" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="95d9d373-6362-4376-b3da-30aa17517fd7">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[Select * from mydb.users]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
