@@ -41,7 +41,7 @@ public class DeliveryUIController {
     public TextField addressTwo;
 
     public void initialize() throws SQLException {
-        db.showUsername(currentUsername_Label);
+        db.showCurrentUsername(currentUsername_Label);
     }
 
     public void launchUI(String uiPath) throws IOException {

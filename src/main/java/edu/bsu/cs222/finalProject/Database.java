@@ -6,17 +6,6 @@ import java.sql.*;
 
 public class Database {
 
-    public static void main( String[] args ) throws SQLException {
-        Database db = new Database();
-        db.logOutCurrentUser();
-        System.out.println(db.getCurrentUsername());
-    }
-
-    public void showUsername( Label currentUsername_Label ) throws SQLException {
-        currentUsername_Label.setText( getCurrentUsername() );
-        currentUsername_Label.setVisible( true );
-    }
-
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/mydb",
@@ -47,18 +36,19 @@ public class Database {
         preparedStatement.close();
     }
 
-    public void logOutCurrentUser() throws SQLException {
-        String command = "DELETE FROM logged_in_user";
-        PreparedStatement preparedStatement = getConnection().prepareStatement( command );
-        preparedStatement.executeUpdate();
-        preparedStatement.close();
-    }
 
     public void logInCurrentUser( String username, String password) throws SQLException {
         String command = "INSERT INTO logged_in_user VALUES(?,?)";
         PreparedStatement preparedStatement = getConnection().prepareStatement( command );
         preparedStatement.setString( 1, username );
         preparedStatement.setString( 2, password );
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    public void logOutCurrentUser() throws SQLException {
+        String command = "DELETE FROM logged_in_user";
+        PreparedStatement preparedStatement = getConnection().prepareStatement( command );
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }
@@ -70,6 +60,11 @@ public class Database {
         if ( resultSet.next() )
         { return resultSet.getString("username"); }
         else { return null; }
+    }
+
+    public void showCurrentUsername( Label currentUsername_Label ) throws SQLException {
+        currentUsername_Label.setText( getCurrentUsername() );
+        currentUsername_Label.setVisible( true );
     }
 
     public boolean isValid_UserCredentials(String username, String password) throws SQLException {
