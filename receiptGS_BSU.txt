@@ -1,10 +1,8 @@
-Receipt for order 1675N
+Receipt for order 1477N
 ---------------------------------------
-Bread | 0.99 | QTY:5
-Premium Salsa | 5.19 | QTY:5
 
-Total: $30.9
-Date purchased: 2021-03-12
+Total: $0.0
+Date purchased: 2021-03-14
 ---------------------------------------------
 
 Thanks for shopping with us!

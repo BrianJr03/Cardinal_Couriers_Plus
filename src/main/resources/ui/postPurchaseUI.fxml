@@ -46,12 +46,27 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="receiptSent" layoutX="351.0" layoutY="383.0" onMouseClicked="#launchMainUI" text="Your receipt has been sent!" textFill="#08d248" visible="false">
+      <ComboBox fx:id="carrierComboBox" layoutX="470.0" layoutY="342.0" prefHeight="25.0" prefWidth="149.0" promptText="Carrier" />
+      <Label fx:id="pleaseSelectContactInfo_Label" layoutX="273.0" layoutY="403.0" text="Please select at least one option to recieve a receipt." textFill="#da0909">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="carrierComboBox" layoutX="470.0" layoutY="342.0" prefHeight="25.0" prefWidth="149.0" promptText="Carrier" />
+      <Label fx:id="pleaseEnterContactInfo_Label" layoutX="333.0" layoutY="403.0" text="Please enter contact information." textFill="#da0909">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="receiptSent" layoutX="361.0" layoutY="393.0" onMouseClicked="#launchMainUI" text="Your receipt has been sent!" textFill="#08d248" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="receiptSent" layoutX="350.0" layoutY="403.0" text="Your receipt has been sent!" textFill="#08d248">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
     </Pane>
     <Pane layoutX="-5.0" prefHeight="622.0" prefWidth="139.0" styleClass="sidebar" stylesheets="@../stylesheets/loginUI_stylesheet.css">
         <ImageView fitHeight="128.0" fitWidth="115.0" layoutX="14.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">

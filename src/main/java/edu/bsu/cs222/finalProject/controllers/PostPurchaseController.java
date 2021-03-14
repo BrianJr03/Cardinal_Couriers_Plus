@@ -23,6 +23,10 @@ import static edu.bsu.cs222.finalProject.SendReceipt.sendReceiptAsTextMSG;
 public class PostPurchaseController {
 
     @FXML
+    private Label pleaseEnterContactInfo_Label;
+    @FXML
+    private Label pleaseSelectContactInfo_Label;
+    @FXML
     private ComboBox<String> carrierComboBox;
     @FXML
     private AnchorPane rootPane;
@@ -49,14 +53,26 @@ public class PostPurchaseController {
         carrierOptions.add("T-Mobile");
         carrierOptions.add("Verizon");
         carrierComboBox.setItems( carrierOptions );
+        receiptSent.setVisible( false );
+        pleaseEnterContactInfo_Label.setVisible( false );
+        pleaseSelectContactInfo_Label.setVisible( false );
     }
 
-    public void sendReceipt() throws MessagingException, IOException {
-        if (emailCheckBox.isSelected())
-        { sendReceiptAsEmail(SendReceipt.isValidEmail(emailAddress.getText()), cart );}
-        if(textCheckBox.isSelected())
-        { sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(phoneNumber.getText()), cart, carrierComboBox.getValue()); }
-        displayPromptFor3secs(receiptSent);
+    public void sendReceipt() throws MessagingException, IOException { //bruh. clean up this mess
+        if (!emailCheckBox.isSelected() && !textCheckBox.isSelected())
+        { displayPromptFor3secs( pleaseSelectContactInfo_Label ); }
+        else {
+            if (emailCheckBox.isSelected() && !emailAddress.getText().isEmpty())
+            { sendReceiptAsEmail(SendReceipt.isValidEmail(
+                    emailAddress.getText()), cart );
+            displayPromptFor3secs(receiptSent);}
+            else displayPromptFor3secs( pleaseEnterContactInfo_Label );
+            if(textCheckBox.isSelected() && !phoneNumber.getText().isEmpty())
+            { sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(
+                    phoneNumber.getText()), cart, carrierComboBox.getValue());
+            displayPromptFor3secs(receiptSent);}
+            else displayPromptFor3secs( pleaseEnterContactInfo_Label );
+        }
     }
 
     public void closeProgram()

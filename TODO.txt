@@ -1,5 +1,14 @@
-TODO
-   - User better "back arrow" icons
+TODO Fixes
+   - Fix issue where user can add no items to cart
+   - Fix issue where user can checkout with an empty cart
+   - Fix issue storing strings with numbers as username / password in database
+
+TODO Additions
+   - Add number formatting in post order
+   - Add loading label when sending receipt
+   - Add contactless delivery to receipt (if checked)
    - Add Email and phone details to user_accounts / logged_in_user
    - Add Delivery address details to user_accounts / logged_in_user
-   - Fix issue storing strings with numbers as username / password in database
+
+TODO Refactoring
+   - Refactor sendReceipt() in PostPurchaseController

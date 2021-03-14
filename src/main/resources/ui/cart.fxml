@@ -44,7 +44,7 @@
             </font>
         </Label>
         <ImageView fitHeight="24.0" fitWidth="19.0" layoutX="196.0" layoutY="37.0" onMouseClicked="#launchStoreUI" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../pngs/left.png" />
+            <Image url="@../pngs/back-arrow.png" />
         </ImageView>
         <Pane layoutX="-5.0" prefHeight="622.0" prefWidth="139.0" styleClass="sidebar" stylesheets="@../stylesheets/loginUI_stylesheet.css">
             <ImageView fitHeight="128.0" fitWidth="115.0" layoutX="14.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
