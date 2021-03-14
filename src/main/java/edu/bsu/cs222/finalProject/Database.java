@@ -23,8 +23,7 @@ public class Database {
             return true;
         }
         catch ( SQLIntegrityConstraintViolationException e )
-        {
-            System.out.println(e.toString()); return false; }
+        { return false; }
     }
 
     @SuppressWarnings( "unused" ) // might use later
