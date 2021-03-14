@@ -14,7 +14,7 @@
                 <Font name="Century Schoolbook" size="36.0" />
             </font>
         </Label>
-        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="279.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="291.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../pngs/groceries200x200.png" />
         </ImageView>
     </Pane>

@@ -1,6 +1,7 @@
 package edu.bsu.cs222.finalProject.controllers;
 
 import com.google.gson.JsonObject;
+import edu.bsu.cs222.finalProject.Database;
 import edu.bsu.cs222.finalProject.DeliveryInfo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +11,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 import static edu.bsu.cs222.finalProject.DeliveryMap.*;
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
 
 public class DeliveryUIController {
 
+    @FXML
+    private Label currentUsername_Label;
     @FXML
     private TextField addressOne;
     @FXML
@@ -31,9 +35,14 @@ public class DeliveryUIController {
     @FXML
     private AnchorPane rootPane;
 
+    Database db = new Database();
     private DeliveryInfo deliveryInfo = new DeliveryInfo("","","","");
     public Button continueButton;
     public TextField addressTwo;
+
+    public void initialize() throws SQLException {
+        db.showUsername(currentUsername_Label);
+    }
 
     public void launchUI(String uiPath) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(uiPath));
@@ -41,8 +50,9 @@ public class DeliveryUIController {
         rootPane.getChildren().setAll( root );
     }
 
-    public void launchLoginUI() throws IOException
-    { launchUI("/ui/loginUI.fxml"); }
+    public void logout() throws IOException, SQLException {
+        db.logOutCurrentUser();
+        launchUI("/ui/loginUI.fxml"); }
 
     public void launchMainUI() throws IOException
     { launchUI("/ui/mainUI.fxml"); }

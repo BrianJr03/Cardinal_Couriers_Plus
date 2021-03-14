@@ -47,9 +47,14 @@ public class LoginUIController {
     final File isNotVisiblePNG_File = new File("src/main/resources/pngs/isNotVisible.png");
     final Image isNotVisible_PNG = new Image(isNotVisiblePNG_File.toURI().toString());
 
+    public void login() throws IOException, SQLException {
+            db.logInCurrentUser( usernameInput.getText(), passwordInput.getText() );
+            launchDeliveryUI();
+    }
+
     public void launchDeliveryUI() throws IOException {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("/ui/deliveryUI.fxml"));
-            rootPane.getChildren().setAll(pane);
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/ui/deliveryUI.fxml"));
+        rootPane.getChildren().setAll(pane);
     }
 
     @FXML //has duplicate in signup
@@ -74,9 +79,10 @@ public class LoginUIController {
         if ( isValidUserName(usernameInput.getText())
                         && isValidPassword(usernameInput.getText(), passwordInput.getText())) {
             if ( db.isValid_UserCredentials( usernameInput.getText(), passwordInput.getText() ))
-             { launchDeliveryUI(); }
+             { login(); }
             else { displayInvalidUserInfo_Prompt(); }
         }
+        else displayInvalidUserInfo_Prompt();
     }
 
     public void displayInvalidUserInfo_Prompt()

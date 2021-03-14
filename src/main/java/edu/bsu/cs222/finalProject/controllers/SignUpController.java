@@ -14,7 +14,6 @@ import javafx.scene.paint.Color;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-
 import static edu.bsu.cs222.finalProject.LoginLogic.isValidPassword;
 import static edu.bsu.cs222.finalProject.LoginLogic.isValidUserName;
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
@@ -146,7 +145,8 @@ public class SignUpController {
     public boolean verifyPassword_MinLength()
     { return passwordInput1.getText().length() >= 8; }
 
-    public void verifyPasswordInput() {
+    @FXML
+    private void verifyPasswordInput() {
         if ( verifyPassword_NotContainUser() && verifyNonEmpty_PWField() )
         { notContainUserReq_Label.setTextFill( Color.web( green ) ); }
         else { notContainUserReq_Label.setTextFill( Color.web( gray ) ); }
