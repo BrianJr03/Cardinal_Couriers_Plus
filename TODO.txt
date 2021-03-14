@@ -1,5 +1,5 @@
 TODO
-   - Add Alert pop-up in StoreUI
    - User better "back arrow" icons
    - Add Email and phone details to user_accounts / logged_in_user
    - Add Delivery address details to user_accounts / logged_in_user
+   - Fix issue storing strings with numbers as username / password in database

@@ -8,7 +8,7 @@
 <AnchorPane fx:id="rootPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="725.0" styleClass="parent" stylesheets="@../stylesheets/loginUI_stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.finalProject.controllers.WelcomeController">
     <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="725.0" styleClass="sidebar" stylesheets="@../stylesheets/loginUI_stylesheet.css">
         <Button layoutX="446.0" layoutY="268.0" mnemonicParsing="false" onAction="#loadLogin" prefHeight="25.0" prefWidth="64.0" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Login" />
-        <Button layoutX="234.0" layoutY="268.0" mnemonicParsing="false" onAction="#loadSignUp" prefHeight="27.0" prefWidth="148.0" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Create New Account" />
+        <Button layoutX="226.0" layoutY="268.0" mnemonicParsing="false" onAction="#loadSignUp" prefHeight="27.0" prefWidth="148.0" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Create New Account" />
         <Label layoutX="215.0" layoutY="168.0" prefHeight="53.0" prefWidth="381.0" text="Cardinal Couriers">
             <font>
                 <Font name="Century Schoolbook" size="36.0" />

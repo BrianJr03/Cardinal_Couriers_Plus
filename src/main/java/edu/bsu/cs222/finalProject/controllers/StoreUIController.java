@@ -1,5 +1,6 @@
 package edu.bsu.cs222.finalProject.controllers;
 
+import edu.bsu.cs222.finalProject.AlertPopUp;
 import edu.bsu.cs222.finalProject.Inventory;
 import edu.bsu.cs222.finalProject.Item;
 import javafx.collections.FXCollections;
@@ -10,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
+import java.util.Optional;
+
 import static edu.bsu.cs222.finalProject.Inventory.collectItemsAsArrayList;
 import static edu.bsu.cs222.finalProject.controllers.CartUIController.setTableProperties;
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
@@ -35,6 +38,7 @@ public class StoreUIController {
     @FXML
     private AnchorPane rootPane;
 
+    AlertPopUp alertPopUp = new AlertPopUp();
     final ObservableList<Item> itemsToCart = FXCollections.observableArrayList();
 
     public void initialize()
@@ -70,6 +74,14 @@ public class StoreUIController {
         inventoryTable.setItems(items);
     }
 
+    @FXML
+    private void displayCartReset_Alert() throws IOException {
+        Alert alert = alertPopUp.createAlert(rootPane);
+        Optional < ButtonType > result = alert.showAndWait();
+        if ( result.orElse(null) == ButtonType.OK )
+        { launchMainUI(); }
+    }
+
     public void launchMainUI() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/mainUI.fxml"));
         Parent root = loader.load();
@@ -78,7 +90,8 @@ public class StoreUIController {
         mainUIController.displayCartClearPrompt();
     }
 
-    public void launchCartUI() throws IOException {
+    @FXML
+    private void launchCartUI() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/cart.fxml"));
         Parent root = loader.load();
         CartUIController cartUIController = loader.getController();

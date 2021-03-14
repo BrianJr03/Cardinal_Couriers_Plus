@@ -1,7 +1,6 @@
 package edu.bsu.cs222.finalProject;
 
 import javafx.scene.control.Label;
-
 import java.sql.*;
 
 public class Database {
@@ -24,7 +23,8 @@ public class Database {
             return true;
         }
         catch ( SQLIntegrityConstraintViolationException e )
-        { return false; }
+        {
+            System.out.println(e.toString()); return false; }
     }
 
     @SuppressWarnings( "unused" ) // might use later
@@ -36,8 +36,7 @@ public class Database {
         preparedStatement.close();
     }
 
-
-    public void logInCurrentUser( String username, String password) throws SQLException {
+    public void logInCurrentUser(String username, String password) throws SQLException {
         String command = "INSERT INTO logged_in_user VALUES(?,?)";
         PreparedStatement preparedStatement = getConnection().prepareStatement( command );
         preparedStatement.setString( 1, username );
@@ -62,7 +61,7 @@ public class Database {
         else { return null; }
     }
 
-    public void showCurrentUsername( Label currentUsername_Label ) throws SQLException {
+    public void showCurrentUsername(Label currentUsername_Label) throws SQLException {
         currentUsername_Label.setText( getCurrentUsername() );
         currentUsername_Label.setVisible( true );
     }

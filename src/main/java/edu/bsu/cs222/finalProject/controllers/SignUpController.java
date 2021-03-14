@@ -111,7 +111,8 @@ public class SignUpController {
             //Database integration
             if ( !db.canCreateUser( usernameInput.getText(), passwordInput1.getText() ))
             { displayPromptFor3secs( duplicateAcctExists_Label ); }
-            else { launchDeliveryUI(); }
+            else { db.logInCurrentUser( usernameInput.getText(), passwordInput1.getText() );
+                launchDeliveryUI(); }
             db.getConnection().close();
         }
         else { displayInvalidUserInfo_Prompt(); }
