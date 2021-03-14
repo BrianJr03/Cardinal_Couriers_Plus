@@ -17,8 +17,7 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
-import static edu.bsu.cs222.finalProject.SendReceipt.sendReceiptAsEmail;
-import static edu.bsu.cs222.finalProject.SendReceipt.sendReceiptAsTextMSG;
+import static edu.bsu.cs222.finalProject.SendReceipt.*;
 
 public class PostPurchaseController {
 
@@ -58,22 +57,55 @@ public class PostPurchaseController {
         pleaseSelectContactInfo_Label.setVisible( false );
     }
 
-    public void sendReceipt() throws MessagingException, IOException { //bruh. clean up this mess
-        if (!emailCheckBox.isSelected() && !textCheckBox.isSelected())
+    public void sendReceipt() throws MessagingException, IOException {
+        if ( phoneAndEmailBoxes_NotSelected() )
         { displayPromptFor3secs( pleaseSelectContactInfo_Label ); }
-        else {
-            if (emailCheckBox.isSelected() && !emailAddress.getText().isEmpty())
-            { sendReceiptAsEmail(SendReceipt.isValidEmail(
-                    emailAddress.getText()), cart );
-            displayPromptFor3secs(receiptSent);}
-            else displayPromptFor3secs( pleaseEnterContactInfo_Label );
-            if(textCheckBox.isSelected() && !phoneNumber.getText().isEmpty())
-            { sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(
-                    phoneNumber.getText()), cart, carrierComboBox.getValue());
-            displayPromptFor3secs(receiptSent);}
-            else displayPromptFor3secs( pleaseEnterContactInfo_Label );
+        else { emailCheckBox_isSelected(); phoneCheckBox_isSelected(); }
+    }
+    
+    private void emailCheckBox_isSelected() throws IOException, MessagingException {
+        if ( emailCheckBox.isSelected() ) {
+            if ( isValidEmail(emailAddress.getText()) != null )
+            { verifyEmailInfo(); }
+            else if ( !isPhoneInfo_Filled() )
+            { displayPromptFor3secs( pleaseEnterContactInfo_Label ); }
         }
     }
+    
+    private void phoneCheckBox_isSelected() throws IOException, MessagingException {
+        if ( textCheckBox.isSelected() && carrierComboBox.getValue() != null ) {
+            if ( isValidPhoneNumber(phoneNumber.getText()) != null )
+            { verifyPhoneInfo(); }
+            else if ( !isEmailInfo_Filled() )
+            { displayPromptFor3secs( pleaseEnterContactInfo_Label ); }
+        }
+        else displayPromptFor3secs( pleaseEnterContactInfo_Label );
+    }
+
+    private void verifyEmailInfo() throws IOException, MessagingException {
+        if ( isEmailInfo_Filled() )
+        { sendReceiptAsEmail(SendReceipt.isValidEmail(
+                emailAddress.getText()), cart );
+            displayPromptFor3secs(receiptSent);}
+        else displayPromptFor3secs( pleaseEnterContactInfo_Label );
+    }
+
+    private void verifyPhoneInfo() throws IOException, MessagingException {
+        if( isPhoneInfo_Filled() )
+        { sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(
+                phoneNumber.getText()), cart, carrierComboBox.getValue());
+            displayPromptFor3secs(receiptSent);}
+        else displayPromptFor3secs( pleaseEnterContactInfo_Label );
+    }
+
+    private boolean isPhoneInfo_Filled()
+    { return textCheckBox.isSelected() && !phoneNumber.getText().isEmpty(); }
+
+    private boolean isEmailInfo_Filled()
+    { return emailCheckBox.isSelected() && !emailAddress.getText().isEmpty(); }
+
+    private boolean phoneAndEmailBoxes_NotSelected()
+    { return !emailCheckBox.isSelected() && !textCheckBox.isSelected(); }
 
     public void closeProgram()
     { System.exit(0); }

@@ -11,4 +11,3 @@ TODO Additions
    - Add Delivery address details to user_accounts / logged_in_user
 
 TODO Refactoring
-   - Refactor sendReceipt() in PostPurchaseController
