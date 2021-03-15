@@ -12,11 +12,11 @@ Usage Instructions: When logging into the application, if you do not wish to use
 
   username
   
-    a. has minimum of 5 alphabet characters 
+    a. has minimum of 5 alphabet characters
+
+    b. appending numbers is optional
     
-    b. appending '@bsu.edu' is optional
-    
-    c. EX: admin or admin@bsu.edu
+    b. EX: admin or admin779
     
   password
   

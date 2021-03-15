@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class LoginLogic {
 
     public static boolean isValidUserName(String username) {
-        Pattern pattern = Pattern.compile("[a-zA-Z]+(@bsu\\.edu)?");
+        Pattern pattern = Pattern.compile("[a-zA-Z]+([+-]?[0-9]+)?");
         Matcher matcher = pattern.matcher(username);
         if (username.length() < 5) {return false;}
         return (matcher.find() && matcher.group().equals(username));
