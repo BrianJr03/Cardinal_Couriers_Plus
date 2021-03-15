@@ -49,5 +49,10 @@
             <Font size="13.0" />
          </font>
       </Label>
+      <Label fx:id="noItems_InCart_Label" layoutX="344.0" layoutY="565.0" prefHeight="25.0" prefWidth="183.0" text="There are no items in your cart." textFill="#da0909">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
     </Pane>
 </AnchorPane>

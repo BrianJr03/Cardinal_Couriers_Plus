@@ -20,6 +20,8 @@ import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
 public class StoreUIController {
 
     @FXML
+    private Label noItems_InCart_Label;
+    @FXML
     Label itemsAddedToCart_Label;
     @FXML
     public Label storeNameLabel;
@@ -42,17 +44,21 @@ public class StoreUIController {
     final ObservableList<Item> itemsToCart = FXCollections.observableArrayList();
 
     public void initialize()
-    { itemsAddedToCart_Label.setVisible(false); }
+    { itemsAddedToCart_Label.setVisible(false); noItems_InCart_Label.setVisible( false ); }
 
     public void addItemToCart() {
+        int itemCount = 0;
         ObservableList<Item> items = inventoryTable.getItems();
         for (Item item : items) {
             if (item.getQuantity() != 0) {
+                itemCount++;
                 Item newItem = new Item(new Item(item.getName(), item.getPrice()), item.getQuantity());
                 if (!itemsToCart.isEmpty())
                 { verifyNoDuplicateCartItems(newItem); }
                 else { itemsToCart.add(newItem); }}}
-        displayPromptFor3secs( itemsAddedToCart_Label );
+        if (itemCount == 0)
+        { displayPromptFor3secs( noItems_InCart_Label ); }
+        else displayPromptFor3secs( itemsAddedToCart_Label );
     }
 
     public void verifyNoDuplicateCartItems(Item item) {

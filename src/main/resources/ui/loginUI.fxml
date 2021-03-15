@@ -41,10 +41,6 @@
          <font>
             <Font name="Century Schoolbook" size="12.0" />
          </font></TextField>
-      <Button fx:id="forgotPasswordButton" layoutX="202.0" layoutY="423.0" mnemonicParsing="false" onAction="#openSiteToChangePassword" prefHeight="25.0" prefWidth="110.0" styleClass="loginBtn" stylesheets="@../stylesheets/loginUI_stylesheet.css" text="Forgot password?">
-         <font>
-            <Font name="Impact" size="12.0" />
-         </font></Button>
       <CheckBox fx:id="checkBox" layoutX="320.0" layoutY="283.0" mnemonicParsing="false" onAction="#showUnMaskedPassword" />
       <Label fx:id="unMaskedPassword" layoutX="192.0" layoutY="329.0" text="unMaskedPassword" textFill="#a3a3a3" visible="false">
          <font>

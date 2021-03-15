@@ -1,6 +1,7 @@
 package edu.bsu.cs222.finalProject.controllers;
 
 import edu.bsu.cs222.finalProject.Database;
+import edu.bsu.cs222.finalProject.SendReceipt;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -68,11 +69,6 @@ public class LoginUIController {
             unMaskedPassword.setText(passwordInput.getText());
             unMaskedPassword.setVisible(true); }
         else { passwordVisibility.setImage(isNotVisible_PNG); unMaskedPassword.setVisible(false); }
-    }
-
-    public void openSiteToChangePassword() throws URISyntaxException, IOException {
-        URI uri= new URI("https://password.bsu.edu/forgot.aspx");
-        java.awt.Desktop.getDesktop().browse(uri);
     }
 
     public void verifyUserInfo() throws IOException, SQLException {

@@ -56,7 +56,8 @@ public class SendReceipt {
         Transport.send(msg);
     }
 
-    public static void sendReceiptAsTextMSG(String phoneNumber, Cart cart, String userCarrier) throws MessagingException, IOException {
+    public static void sendReceiptAsTextMSG(String phoneNumber, Cart cart, String userCarrier) throws MessagingException,
+            IOException {
         writeReceipt(cart);
         switch (userCarrier) {
             case "AT&T" -> sendReceiptAsEmail(phoneNumber + "@mms.att.net", cart);
