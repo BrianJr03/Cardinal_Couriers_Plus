@@ -4,10 +4,9 @@ TODO Fixes
    - Fix issue storing strings with numbers as username / password in database
 
 TODO Additions
-   - Add number formatting in post order
-   - Add loading label when sending receipt
    - Add contactless delivery to receipt (if checked)
    - Add Email and phone details to user_accounts / logged_in_user
    - Add Delivery address details to user_accounts / logged_in_user
 
 TODO Refactoring
+   - Refactor code to fit MVC

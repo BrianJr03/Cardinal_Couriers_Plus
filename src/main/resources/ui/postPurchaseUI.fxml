@@ -57,12 +57,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="receiptSent" layoutX="361.0" layoutY="393.0" onMouseClicked="#launchMainUI" text="Your receipt has been sent!" textFill="#08d248" visible="false">
+      <Label layoutX="361.0" layoutY="393.0" onMouseClicked="#launchMainUI" text="Your receipt has been sent!" textFill="#08d248" visible="false">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="receiptSent" layoutX="350.0" layoutY="403.0" text="Your receipt has been sent!" textFill="#08d248">
+      <Label layoutX="350.0" layoutY="403.0" text="Your receipt has been sent!" textFill="#08d248">
          <font>
             <Font size="14.0" />
          </font>

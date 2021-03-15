@@ -12,15 +12,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-
 import javax.mail.MessagingException;
 import java.io.IOException;
-
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
 import static edu.bsu.cs222.finalProject.SendReceipt.*;
 
 public class PostPurchaseController {
-
     @FXML
     private Label pleaseEnterContactInfo_Label;
     @FXML
@@ -57,13 +54,16 @@ public class PostPurchaseController {
         pleaseSelectContactInfo_Label.setVisible( false );
     }
 
+    public static String formatPhoneNumber( String phoneNumber )
+    { return phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "$1-$2-$3"); }
+
     public void sendReceipt() throws MessagingException, IOException {
         if ( phoneAndEmailBoxes_NotSelected() )
         { displayPromptFor3secs( pleaseSelectContactInfo_Label ); }
-        else { emailCheckBox_isSelected(); phoneCheckBox_isSelected(); }
+        else { ifEmailCheckBox_isSelected(); ifPhoneCheckBox_isSelected(); }
     }
     
-    private void emailCheckBox_isSelected() throws IOException, MessagingException {
+    private void ifEmailCheckBox_isSelected() throws IOException, MessagingException {
         if ( emailCheckBox.isSelected() ) {
             if ( isValidEmail(emailAddress.getText()) != null )
             { verifyEmailInfo(); }
@@ -72,7 +72,7 @@ public class PostPurchaseController {
         }
     }
     
-    private void phoneCheckBox_isSelected() throws IOException, MessagingException {
+    private void ifPhoneCheckBox_isSelected() throws IOException, MessagingException {
         if ( textCheckBox.isSelected() && carrierComboBox.getValue() != null ) {
             if ( isValidPhoneNumber(phoneNumber.getText()) != null )
             { verifyPhoneInfo(); }
@@ -84,18 +84,27 @@ public class PostPurchaseController {
 
     private void verifyEmailInfo() throws IOException, MessagingException {
         if ( isEmailInfo_Filled() )
-        { sendReceiptAsEmail(SendReceipt.isValidEmail(
-                emailAddress.getText()), cart );
-            displayPromptFor3secs(receiptSent);}
+        {  sendReceipt_Email(); }
         else displayPromptFor3secs( pleaseEnterContactInfo_Label );
     }
 
     private void verifyPhoneInfo() throws IOException, MessagingException {
         if( isPhoneInfo_Filled() )
-        { sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(
-                phoneNumber.getText()), cart, carrierComboBox.getValue());
-            displayPromptFor3secs(receiptSent);}
+        { sendReceipt_PhoneNum(); }
         else displayPromptFor3secs( pleaseEnterContactInfo_Label );
+    }
+
+    private void sendReceipt_PhoneNum() throws IOException, MessagingException {
+        String formattedPhoneNum = formatPhoneNumber( phoneNumber.getText() );
+        sendReceiptAsTextMSG(SendReceipt.isValidPhoneNumber(
+                formattedPhoneNum), cart, carrierComboBox.getValue());
+        displayPromptFor3secs(receiptSent);
+    }
+
+    private void sendReceipt_Email() throws IOException, MessagingException {
+        sendReceiptAsEmail(SendReceipt.isValidEmail(
+                emailAddress.getText()), cart );
+        displayPromptFor3secs(receiptSent);
     }
 
     private boolean isPhoneInfo_Filled()
