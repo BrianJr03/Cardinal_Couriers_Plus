@@ -13,11 +13,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-
+import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
 import java.io.IOException;
 
 public class CartUIController {
 
+    @FXML
+    private Label noItems_InCart_Label;
     @FXML
     private TableColumn<Button, Button> decrementColumn;
     @FXML
@@ -42,9 +44,18 @@ public class CartUIController {
         setTableProperties(nameColumn, priceColumn, quantityColumn, decrementColumn, incrementColumn);
         cartTable.setItems(cart.getItems());
         setMouseClickEvents(cart.getItems());
+        noItems_InCart_Label.setVisible( false );
     }
 
-    public void launchOrderConfirmUI() throws IOException {
+    public void verifyCart() throws IOException {
+        if ( isCartEmpty() ) displayPromptFor3secs( noItems_InCart_Label );
+        else launchOrderConfirmUI();
+    }
+
+    private boolean isCartEmpty()
+    { return cart.getItems().size() == 0; }
+
+    private void launchOrderConfirmUI() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/orderConfirm.fxml"));
         Parent root = loader.load();
         OrderConfirmController orderConfirm = loader.getController();

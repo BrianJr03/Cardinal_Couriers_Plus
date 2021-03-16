@@ -1,8 +1,9 @@
-Receipt for order 1491N
+Receipt for order 1586N
 ---------------------------------------
+Ice Cream | 4.99 | QTY:2
 
-Total: $0.0
-Date purchased: 2021-03-14
+Total: $9.98
+Date purchased: 2021-03-15
 ---------------------------------------------
 
 Thanks for shopping with us!

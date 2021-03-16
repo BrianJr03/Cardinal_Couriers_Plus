@@ -24,7 +24,7 @@
                 <TableColumn fx:id="incrementColumn" prefWidth="50.0" style="-fx-alignment: CENTER;" />
             </columns>
         </TableView>
-        <Button layoutX="391.0" layoutY="476.0" mnemonicParsing="false" onAction="#launchOrderConfirmUI" prefHeight="35.0" prefWidth="97.0" styleClass="logoutBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Checkout">
+        <Button layoutX="391.0" layoutY="476.0" mnemonicParsing="false" onAction="#verifyCart" prefHeight="35.0" prefWidth="97.0" styleClass="logoutBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Checkout">
             <font>
                 <Font name="Impact" size="12.0" />
             </font></Button>
@@ -51,5 +51,10 @@
                 <Image url="@../pngs/groceries200x200.png" />
             </ImageView>
         </Pane>
+        <Label fx:id="noItems_InCart_Label" layoutX="348.0" layoutY="565.0" prefHeight="25.0" prefWidth="183.0" text="There are no items in your cart." textFill="#da0909">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
     </Pane>
 </AnchorPane>

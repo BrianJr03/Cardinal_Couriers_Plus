@@ -62,7 +62,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="350.0" layoutY="403.0" text="Your receipt has been sent!" textFill="#08d248">
+      <Label fx:id="receiptSent" layoutX="350.0" layoutY="403.0" text="Your receipt has been sent!" textFill="#08d248">
          <font>
             <Font size="14.0" />
          </font>

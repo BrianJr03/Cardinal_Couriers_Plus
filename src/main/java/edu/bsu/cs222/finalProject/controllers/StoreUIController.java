@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.util.Optional;
-
 import static edu.bsu.cs222.finalProject.Inventory.collectItemsAsArrayList;
 import static edu.bsu.cs222.finalProject.controllers.CartUIController.setTableProperties;
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
