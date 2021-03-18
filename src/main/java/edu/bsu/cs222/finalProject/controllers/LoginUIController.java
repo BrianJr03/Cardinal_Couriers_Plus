@@ -1,20 +1,15 @@
 package edu.bsu.cs222.finalProject.controllers;
 
 import edu.bsu.cs222.finalProject.Database;
-import edu.bsu.cs222.finalProject.SendReceipt;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.sql.SQLException;
-
 import static edu.bsu.cs222.finalProject.LoginLogic.isValidPassword;
 import static edu.bsu.cs222.finalProject.LoginLogic.isValidUserName;
 import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
@@ -36,7 +31,6 @@ public class LoginUIController {
     @FXML
     private TextField usernameInput;
 
-    public Button forgotPasswordButton;
 
     Database db = new Database();
 
@@ -83,4 +77,10 @@ public class LoginUIController {
 
     public void displayInvalidUserInfo_Prompt()
     { displayPromptFor3secs(invalidUserInfo_Prompt); }
+
+    @FXML
+    private void launchForgotPassword() throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/ui/forgotUI.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
 }

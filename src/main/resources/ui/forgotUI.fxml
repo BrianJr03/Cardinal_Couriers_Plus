@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="725.0" styleClass="parent" stylesheets="@../stylesheets/loginUI_stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.finalProject.controllers.ForgotPWController">
+    <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="725.0" styleClass="sidebar" stylesheets="@../stylesheets/loginUI_stylesheet.css">
+        <Button layoutX="449.0" layoutY="233.0" mnemonicParsing="false" onAction="#retrievePassword" prefHeight="25.0" prefWidth="64.0" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="ENTER" />
+        <Label layoutX="221.0" layoutY="93.0" prefHeight="53.0" prefWidth="307.0" text="Forgot password?">
+            <font>
+                <Font name="Century Schoolbook" size="36.0" />
+            </font>
+        </Label>
+      <Label layoutX="227.0" layoutY="146.0" prefHeight="53.0" prefWidth="295.0" text="Enter your username to recover it.">
+         <font>
+            <Font name="Century Schoolbook" size="18.0" />
+         </font>
+      </Label>
+        <Button layoutX="14.0" layoutY="580.0" mnemonicParsing="false" onAction="#launchLogin" styleClass="signUpBtn" stylesheets="@../stylesheets/mainUI_stylesheet.css" text="Back" />
+        <TextField fx:id="username_Textfield" layoutX="227.0" layoutY="234.0" prefHeight="25.0" prefWidth="212.0" />
+      <Label fx:id="password_Label" layoutX="260.0" layoutY="332.0" prefHeight="50.0" prefWidth="121.0" text="Password:">
+         <font>
+            <Font name="Century Schoolbook" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="userPassword_Label" layoutX="348.0" layoutY="332.0" prefHeight="50.0" prefWidth="133.0" text="User Password">
+         <font>
+            <Font name="Century Schoolbook" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="plsEnterValidUser_Label" layoutX="272.0" layoutY="423.0" prefHeight="53.0" prefWidth="206.0" text="Please enter a valid username." textFill="WHITE">
+         <font>
+            <Font name="Century Schoolbook" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="noAcct_Label" layoutX="282.0" layoutY="331.0" prefHeight="53.0" prefWidth="162.0" text="No account found.">
+         <font>
+            <Font name="Century Schoolbook" size="18.0" />
+         </font>
+      </Label>
+    </Pane>
+    <ImageView id="test" fitHeight="50.0" fitWidth="50.0" layoutX="676.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="569.0">
+        <Image url="@../pngs/bsu.png" />
+    </ImageView>
+</AnchorPane>

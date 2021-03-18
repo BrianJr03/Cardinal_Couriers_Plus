@@ -17,7 +17,6 @@ import static edu.bsu.cs222.finalProject.Main.displayPromptFor3secs;
 import java.io.IOException;
 
 public class CartUIController {
-
     @FXML
     private Label noItems_InCart_Label;
     @FXML

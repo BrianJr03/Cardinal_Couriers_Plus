@@ -48,6 +48,11 @@
          </font></Label>
       <ImageView fx:id="passwordVisibility" fitHeight="16.0" fitWidth="16.0" layoutX="344.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="invalidUserInfo_Prompt" layoutX="150.0" layoutY="491.0" text="Invalid username or password" textFill="#da0909" visible="false" />
+      <Button layoutX="145.0" layoutY="431.0" mnemonicParsing="false" onAction="#launchForgotPassword" prefHeight="38.0" prefWidth="167.0" styleClass="loginBtn" text="Forgot Password?" underline="true">
+         <font>
+            <Font name="Impact" size="12.0" />
+         </font>
+      </Button>
    </Pane>
    <ImageView id="test" fitHeight="50.0" fitWidth="50.0" layoutX="676.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="569.0">
       <Image url="@../pngs/bsu.png" />

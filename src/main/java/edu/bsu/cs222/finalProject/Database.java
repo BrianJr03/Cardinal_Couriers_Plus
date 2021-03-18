@@ -65,6 +65,16 @@ public class Database {
         currentUsername_Label.setVisible( true );
     }
 
+    public String getCurrentPassword(String username) throws SQLException {
+        String command = "SELECT PASSWORD FROM USER_ACCOUNTS WHERE USERNAME = ?";
+        PreparedStatement preppedStatement = getConnection().prepareStatement( command );
+        preppedStatement.setString( 1, username );
+        ResultSet resultSet = preppedStatement.executeQuery();
+        if ( resultSet.next() )
+        { return resultSet.getString("password"); }
+        else { return null; }
+    }
+
     public boolean isValid_UserCredentials(String username, String password) throws SQLException {
         String command = "SELECT * FROM USER_ACCOUNTS WHERE USERNAME = ? AND PASSWORD = ?";
         PreparedStatement preppedStatement = getConnection().prepareStatement( command );
