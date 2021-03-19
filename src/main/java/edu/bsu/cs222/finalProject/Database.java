@@ -13,17 +13,21 @@ public class Database {
     }
 
     public boolean canCreateUser(String username, String password) throws SQLException {
-        try {
+        String command0 = "SELECT USERNAME FROM USER_ACCOUNTS WHERE USERNAME = ?";
+        PreparedStatement preppedStatement0 = getConnection().prepareStatement( command0 );
+        preppedStatement0.setString( 1, username );
+        ResultSet resultSet = preppedStatement0.executeQuery();
+        if ( !resultSet.next() ) {
             String command = "INSERT INTO USER_ACCOUNTS VALUES(?,?)";
             PreparedStatement preppedStatement = getConnection().prepareStatement( command );
             preppedStatement.setString( 1, username );
             preppedStatement.setString( 2, password);
             preppedStatement.executeUpdate();
             preppedStatement.close();
+            preppedStatement0.close();
             return true;
         }
-        catch ( SQLIntegrityConstraintViolationException e )
-        { return false; }
+        else { preppedStatement0.close(); return false; }
     }
 
     @SuppressWarnings( "unused" ) // might use later
@@ -55,9 +59,12 @@ public class Database {
         String command = "SELECT * FROM logged_in_user";
         PreparedStatement preppedStatement = getConnection().prepareStatement( command );
         ResultSet resultSet = preppedStatement.executeQuery();
-        if ( resultSet.next() )
-        { return resultSet.getString("username"); }
-        else { return null; }
+        if ( resultSet.next() ) {
+            String username = resultSet.getString("username");
+            preppedStatement.close();
+            return username;
+        }
+        else { preppedStatement.close(); return null; }
     }
 
     public void showCurrentUsername(Label currentUsername_Label) throws SQLException {
@@ -71,8 +78,8 @@ public class Database {
         preppedStatement.setString( 1, username );
         ResultSet resultSet = preppedStatement.executeQuery();
         if ( resultSet.next() )
-        { return resultSet.getString("password"); }
-        else { return null; }
+        { preppedStatement.close(); return resultSet.getString("password"); }
+        else { preppedStatement.close(); return null; }
     }
 
     public boolean isValid_UserCredentials(String username, String password) throws SQLException {
