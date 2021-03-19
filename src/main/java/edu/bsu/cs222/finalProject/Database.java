@@ -12,11 +12,15 @@ public class Database {
                 "Whymakethechange79" );
     }
 
-    public boolean canCreateUser(String username, String password) throws SQLException {
-        String command0 = "SELECT USERNAME FROM USER_ACCOUNTS WHERE USERNAME = ?";
-        PreparedStatement preppedStatement0 = getConnection().prepareStatement( command0 );
-        preppedStatement0.setString( 1, username );
-        ResultSet resultSet = preppedStatement0.executeQuery();
+    private ResultSet verify_NoUserDuplicates( String username) throws SQLException {
+        String command = "SELECT USERNAME FROM USER_ACCOUNTS WHERE USERNAME = ?";
+        PreparedStatement preppedStatement = getConnection().prepareStatement( command );
+        preppedStatement.setString( 1, username );
+        return preppedStatement.executeQuery();
+    }
+
+    public boolean canCreateUser( String username, String password) throws SQLException {
+        ResultSet resultSet = verify_NoUserDuplicates( username );
         if ( !resultSet.next() ) {
             String command = "INSERT INTO USER_ACCOUNTS VALUES(?,?)";
             PreparedStatement preppedStatement = getConnection().prepareStatement( command );
@@ -24,10 +28,10 @@ public class Database {
             preppedStatement.setString( 2, password);
             preppedStatement.executeUpdate();
             preppedStatement.close();
-            preppedStatement0.close();
+            resultSet.close();
             return true;
         }
-        else { preppedStatement0.close(); return false; }
+        else { resultSet.close(); return false; }
     }
 
     @SuppressWarnings( "unused" ) // might use later
